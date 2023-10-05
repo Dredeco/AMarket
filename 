@@ -1,0 +1,426 @@
+[33mcommit 173f600d03271cf0d803e93fa45d6dc54caeab38[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Dredeco <andrefersouza@gmail.com>
+Date:   Thu Oct 5 15:07:42 2023 -0300
+
+    Initial commit from Create Next App
+
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8f322f0[m
+[1m--- /dev/null[m
+[1m+++ b/.gitignore[m
+[36m@@ -0,0 +1,35 @@[m
+[32m+[m[32m# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.[m
+[32m+[m
+[32m+[m[32m# dependencies[m
+[32m+[m[32m/node_modules[m
+[32m+[m[32m/.pnp[m
+[32m+[m[32m.pnp.js[m
+[32m+[m
+[32m+[m[32m# testing[m
+[32m+[m[32m/coverage[m
+[32m+[m
+[32m+[m[32m# next.js[m
+[32m+[m[32m/.next/[m
+[32m+[m[32m/out/[m
+[32m+[m
+[32m+[m[32m# production[m
+[32m+[m[32m/build[m
+[32m+[m
+[32m+[m[32m# misc[m
+[32m+[m[32m.DS_Store[m
+[32m+[m[32m*.pem[m
+[32m+[m
+[32m+[m[32m# debug[m
+[32m+[m[32mnpm-debug.log*[m
+[32m+[m[32myarn-debug.log*[m
+[32m+[m[32myarn-error.log*[m
+[32m+[m
+[32m+[m[32m# local env files[m
+[32m+[m[32m.env*.local[m
+[32m+[m
+[32m+[m[32m# vercel[m
+[32m+[m[32m.vercel[m
+[32m+[m
+[32m+[m[32m# typescript[m
+[32m+[m[32m*.tsbuildinfo[m
+[32m+[m[32mnext-env.d.ts[m
+[1mdiff --git a/README.md b/README.md[m
+[1mnew file mode 100644[m
+[1mindex 0000000..c403366[m
+[1m--- /dev/null[m
+[1m+++ b/README.md[m
+[36m@@ -0,0 +1,36 @@[m
+[32m+[m[32mThis is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).[m
+[32m+[m
+[32m+[m[32m## Getting Started[m
+[32m+[m
+[32m+[m[32mFirst, run the development server:[m
+[32m+[m
+[32m+[m[32m```bash[m
+[32m+[m[32mnpm run dev[m
+[32m+[m[32m# or[m
+[32m+[m[32myarn dev[m
+[32m+[m[32m# or[m
+[32m+[m[32mpnpm dev[m
+[32m+[m[32m# or[m
+[32m+[m[32mbun dev[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32mOpen [http://localhost:3000](http://localhost:3000) with your browser to see the result.[m
+[32m+[m
+[32m+[m[32mYou can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.[m
+[32m+[m
+[32m+[m[32mThis project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.[m
+[32m+[m
+[32m+[m[32m## Learn More[m
+[32m+[m
+[32m+[m[32mTo learn more about Next.js, take a look at the following resources:[m
+[32m+[m
+[32m+[m[32m- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.[m
+[32m+[m[32m- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.[m
+[32m+[m
+[32m+[m[32mYou can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome![m
+[32m+[m
+[32m+[m[32m## Deploy on Vercel[m
+[32m+[m
+[32m+[m[32mThe easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.[m
+[32m+[m
+[32m+[m[32mCheck out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.[m
+[1mdiff --git a/next.config.js b/next.config.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..767719f[m
+[1m--- /dev/null[m
+[1m+++ b/next.config.js[m
+[36m@@ -0,0 +1,4 @@[m
+[32m+[m[32m/** @type {import('next').NextConfig} */[m
+[32m+[m[32mconst nextConfig = {}[m
+[32m+[m
+[32m+[m[32mmodule.exports = nextConfig[m
+[1mdiff --git a/package-lock.json b/package-lock.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..9e11a4f[m
+[1m--- /dev/null[m
+[1m+++ b/package-lock.json[m
+[36m@@ -0,0 +1,729 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m  "name": "front",[m
+[32m+[m[32m  "version": "0.1.0",[m
+[32m+[m[32m  "lockfileVersion": 2,[m
+[32m+[m[32m  "requires": true,[m
+[32m+[m[32m  "packages": {[m
+[32m+[m[32m    "": {[m
+[32m+[m[32m      "name": "front",[m
+[32m+[m[32m      "version": "0.1.0",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "next": "13.5.4",[m
+[32m+[m[32m        "react": "^18",[m
+[32m+[m[32m        "react-dom": "^18"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "devDependencies": {[m
+[32m+[m[32m        "@types/node": "^20",[m
+[32m+[m[32m        "@types/react": "^18",[m
+[32m+[m[32m        "@types/react-dom": "^18",[m
+[32m+[m[32m        "typescript": "^5"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@next/env": {[m
+[32m+[m[32m      "version": "13.5.4",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@next/env/-/env-13.5.4.tgz",[m
+[32m+[m[32m      "integrity": "sha512-LGegJkMvRNw90WWphGJ3RMHMVplYcOfRWf2Be3td3sUa+1AaxmsYyANsA+znrGCBjXJNi4XAQlSoEfUxs/4kIQ=="[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@next/swc-darwin-arm64": {[m
+[32m+[m[32m      "version": "13.5.4",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-13.5.4.tgz",[m
+[32m+[m[32m      "integrity": "sha512-Df8SHuXgF1p+aonBMcDPEsaahNo2TCwuie7VXED4FVyECvdXfRT9unapm54NssV9tF3OQFKBFOdlje4T43VO0w==",[m
+[32m+[m[32m      "cpu": [[m
+[32m+[m[32m        "arm64"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "optional": true,[m
+[32m+[m[32m      "os": [[m
+[32m+[m[32m        "darwin"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">= 10"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@next/swc-darwin-x64": {[m
+[32m+[m[32m      "version": "13.5.4",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@next/swc-darwin-x64/-/swc-darwin-x64-13.5.4.tgz",[m
+[32m+[m[32m      "integrity": "sha512-siPuUwO45PnNRMeZnSa8n/Lye5ZX93IJom9wQRB5DEOdFrw0JjOMu1GINB8jAEdwa7Vdyn1oJ2xGNaQpdQQ9Pw==",[m
+[32m+[m[32m      "cpu": [[m
+[32m+[m[32m        "x64"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "optional": true,[m
+[32m+[m[32m      "os": [[m
+[32m+[m[32m        "darwin"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">= 10"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@next/swc-linux-arm64-gnu": {[m
+[32m+[m[32m      "version": "13.5.4",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@next/swc-linux-arm64-gnu/-/swc-linux-arm64-gnu-13.5.4.tgz",[m
+[32m+[m[32m      "integrity": "sha512-l/k/fvRP/zmB2jkFMfefmFkyZbDkYW0mRM/LB+tH5u9pB98WsHXC0WvDHlGCYp3CH/jlkJPL7gN8nkTQVrQ/2w==",[m
+[32m+[m[32m      "cpu": [[m
+[32m+[m[32m        "arm64"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "optional": true,[m
+[32m+[m[32m      "os": [[m
+[32m+[m[32m        "linux"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">= 10"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@next/swc-linux-arm64-musl": {[m
+[32m+[m[32m      "version": "13.5.4",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@next/swc-linux-arm64-musl/-/swc-linux-arm64-musl-13.5.4.tgz",[m
+[32m+[m[32m      "integrity": "sha512-YYGb7SlLkI+XqfQa8VPErljb7k9nUnhhRrVaOdfJNCaQnHBcvbT7cx/UjDQLdleJcfyg1Hkn5YSSIeVfjgmkTg==",[m
+[32m+[m[32m      "cpu": [[m
+[32m+[m[32m        "arm64"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "optional": true,[m
+[32m+[m[32m      "os": [[m
+[32m+[m[32m        "linux"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">= 10"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@next/swc-linux-x64-gnu": {[m
+[32m+[m[32m      "version": "13.5.4",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@next/swc-linux-x64-gnu/-/swc-linux-x64-gnu-13.5.4.tgz",[m
+[32m+[m[32m      "integrity": "sha512-uE61vyUSClnCH18YHjA8tE1prr/PBFlBFhxBZis4XBRJoR+txAky5d7gGNUIbQ8sZZ7LVkSVgm/5Fc7mwXmRAg==",[m
+[32m+[m[32m      "cpu": [[m
+[32m+[m[32m        "x64"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "optional": true,[m
+[32m+[m[32m      "os": [[m
+[32m+[m[32m        "linux"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">= 10"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@next/swc-linux-x64-musl": {[m
+[32m+[m[32m      "version": "13.5.4",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@next/swc-linux-x64-musl/-/swc-linux-x64-musl-13.5.4.tgz",[m
+[32m+[m[32m      "integrity": "sha512-qVEKFYML/GvJSy9CfYqAdUexA6M5AklYcQCW+8JECmkQHGoPxCf04iMh7CPR7wkHyWWK+XLt4Ja7hhsPJtSnhg==",[m
+[32m+[m[32m      "cpu": [[m
+[32m+[m[32m        "x64"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "optional": true,[m
+[32m+[m[32m      "os": [[m
+[32m+[m[32m        "linux"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">= 10"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@next/swc-win32-arm64-msvc": {[m
+[32m+[m[32m      "version": "13.5.4",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@next/swc-win32-arm64-msvc/-/swc-win32-arm64-msvc-13.5.4.tgz",[m
+[32m+[m[32m      "integrity": "sha512-mDSQfqxAlfpeZOLPxLymZkX0hYF3juN57W6vFHTvwKlnHfmh12Pt7hPIRLYIShk8uYRsKPtMTth/EzpwRI+u8w==",[m
+[32m+[m[32m      "cpu": [[m
+[32m+[m[32m        "arm64"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "optional": true,[m
+[32m+[m[32m      "os": [[m
+[32m+[m[32m        "win32"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">= 10"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@next/swc-win32-ia32-msvc": {[m
+[32m+[m[32m      "version": "13.5.4",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@next/swc-win32-ia32-msvc/-/swc-win32-ia32-msvc-13.5.4.tgz",[m
+[32m+[m[32m      "integrity": "sha512-aoqAT2XIekIWoriwzOmGFAvTtVY5O7JjV21giozBTP5c6uZhpvTWRbmHXbmsjZqY4HnEZQRXWkSAppsIBweKqw==",[m
+[32m+[m[32m      "cpu": [[m
+[32m+[m[32m        "ia32"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "optional": true,[m
+[32m+[m[32m      "os": [[m
+[32m+[m[32m        "win32"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">= 10"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@next/swc-win32-x64-msvc": {[m
+[32m+[m[32m      "version": "13.5.4",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-13.5.4.tgz",[m
+[32m+[m[32m      "integrity": "sha512-cyRvlAxwlddlqeB9xtPSfNSCRy8BOa4wtMo0IuI9P7Y0XT2qpDrpFKRyZ7kUngZis59mPVla5k8X1oOJ8RxDYg==",[m
+[32m+[m[32m      "cpu": [[m
+[32m+[m[32m        "x64"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "optional": true,[m
+[32m+[m[32m      "os": [[m
+[32m+[m[32m        "win32"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">= 10"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@swc/helpers": {[m
+[32m+[m[32m      "version": "0.5.2",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@swc/helpers/-/helpers-0.5.2.tgz",[m
+[32m+[m[32m      "integrity": "sha512-E4KcWTpoLHqwPHLxidpOqQbcrZVgi0rsmmZXUle1jXmJfuIf/UWpczUJ7MZZ5tlxytgJXyp0w4PGkkeLiuIdZw==",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "tslib": "^2.4.0"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@types/node": {[m
+[32m+[m[32m      "version": "20.8.2",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@types/node/-/node-20.8.2.tgz",[m
+[32m+[m[32m      "integrity": "sha512-Vvycsc9FQdwhxE3y3DzeIxuEJbWGDsnrxvMADzTDF/lcdR9/K+AQIeAghTQsHtotg/q0j3WEOYS/jQgSdWue3w==",[m
+[32m+[m[32m      "dev": true[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@types/prop-types": {[m
+[32m+[m[32m      "version": "15.7.8",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.8.tgz",[m
+[32m+[m[32m      "integrity": "sha512-kMpQpfZKSCBqltAJwskgePRaYRFukDkm1oItcAbC3gNELR20XIBcN9VRgg4+m8DKsTfkWeA4m4Imp4DDuWy7FQ==",[m
+[32m+[m[32m      "dev": true[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@types/react": {[m
+[32m+[m[32m      "version": "18.2.25",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@types/react/-/react-18.2.25.tgz",[m
+[32m+[m[32m      "integrity": "sha512-24xqse6+VByVLIr+xWaQ9muX1B4bXJKXBbjszbld/UEDslGLY53+ZucF44HCmLbMPejTzGG9XgR+3m2/Wqu1kw==",[m
+[32m+[m[32m      "dev": true,[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "@types/prop-types": "*",[m
+[32m+[m[32m        "@types/scheduler": "*",[m
+[32m+[m[32m        "csstype": "^3.0.2"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@types/react-dom": {[m
+[32m+[m[32m      "version": "18.2.10",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.2.10.tgz",[m
+[32m+[m[32m      "integrity": "sha512-5VEC5RgXIk1HHdyN1pHlg0cOqnxHzvPGpMMyGAP5qSaDRmyZNDaQ0kkVAkK6NYlDhP6YBID3llaXlmAS/mdgCA==",[m
+[32m+[m[32m      "dev": true,[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "@types/react": "*"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@types/scheduler": {[m
+[32m+[m[32m      "version": "0.16.4",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.4.tgz",[m
+[32m+[m[32m      "integrity": "sha512-2L9ifAGl7wmXwP4v3pN4p2FLhD0O1qsJpvKmNin5VA8+UvNVb447UDaAEV6UdrkA+m/Xs58U1RFps44x6TFsVQ==",[m
+[32m+[m[32m      "dev": true[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/busboy": {[m
+[32m+[m[32m      "version": "1.6.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/busboy/-/busboy-1.6.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-8SFQbg/0hQ9xy3UNTB0YEnsNBbWfhf7RtnzpL7TkBiTBRfrQ9Fxcnz7VJsleJpyp6rVLvXiuORqjlHi5q+PYuA==",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "streamsearch": "^1.1.0"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=10.16.0"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/caniuse-lite": {[m
+[32m+[m[32m      "version": "1.0.30001546",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001546.tgz",[m
+[32m+[m[32m      "integrity": "sha512-zvtSJwuQFpewSyRrI3AsftF6rM0X80mZkChIt1spBGEvRglCrjTniXvinc8JKRoqTwXAgvqTImaN9igfSMtUBw==",[m
+[32m+[m[32m      "funding": [[m
+[32m+[m[32m        {[m
+[32m+[m[32m          "type": "opencollective",[m
+[32m+[m[32m          "url": "https://opencollective.com/browserslist"[m
+[32m+[m[32m        },[m
+[32m+[m[32m        {[m
+[32m+[m[32m          "type": "tidelift",[m
+[32m+[m[32m          "url": "https://tidelift.com/funding/github/npm/caniuse-lite"[m
+[32m+[m[32m        },[m
+[32m+[m[32m        {[m
+[32m+[m[32m          "type": "github",[m
+[32m+[m[32m          "url": "https://github.com/sponsors/ai"[m
+[32m+[m[32m        }[m
+[32m+[m[32m      ][m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/client-only": {[m
+[32m+[m[32m      "version": "0.0.1",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/client-only/-/client-only-0.0.1.tgz",[m
+[32m+[m[32m      "integrity": "sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA=="[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/csstype": {[m
+[32m+[m[32m      "version": "3.1.2",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/csstype/-/csstype-3.1.2.tgz",[m
+[32m+[m[32m      "integrity": "sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==",[m
+[32m+[m[32m      "dev": true[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/glob-to-regexp": {[m
+[32m+[m[32m      "version": "0.4.1",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/glob-to-regexp/-/glob-to-regexp-0.4.1.tgz",[m
+[32m+[m[32m      "integrity": "sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw=="[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/graceful-fs": {[m
+[32m+[m[32m      "version": "4.2.11",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz",[m
+[32m+[m[32m      "integrity": "sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ=="[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/js-tokens": {[m
+[32m+[m[32m      "version": "4.0.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/loose-envify": {[m
+[32m+[m[32m      "version": "1.4.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "js-tokens": "^3.0.0 || ^4.0.0"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "bin": {[m
+[32m+[m[32m        "loose-envify": "cli.js"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/nanoid": {[m
+[32m+[m[32m      "version": "3.3.6",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/nanoid/-/nanoid-3.3.6.tgz",[m
+[32m+[m[32m      "integrity": "sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==",[m
+[32m+[m[32m      "funding": [[m
+[32m+[m[32m        {[m
+[32m+[m[32m          "type": "github",[m
+[32m+[m[32m          "url": "https://github.com/sponsors/ai"[m
+[32m+[m[32m        }[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "bin": {[m
+[32m+[m[32m        "nanoid": "bin/nanoid.cjs"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": "^10 || ^12 || ^13.7 || ^14 || >=15.0.1"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/next": {[m
+[32m+[m[32m      "version": "13.5.4",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/next/-/next-13.5.4.tgz",[m
+[32m+[m[32m      "integrity": "sha512-+93un5S779gho8y9ASQhb/bTkQF17FNQOtXLKAj3lsNgltEcF0C5PMLLncDmH+8X1EnJH1kbqAERa29nRXqhjA==",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "@next/env": "13.5.4",[m
+[32m+[m[32m        "@swc/helpers": "0.5.2",[m
+[32m+[m[32m        "busboy": "1.6.0",[m
+[32m+[m[32m        "caniuse-lite": "^1.0.30001406",[m
+[32m+[m[32m        "postcss": "8.4.31",[m
+[32m+[m[32m        "styled-jsx": "5.1.1",[m
+[32m+[m[32m        "watchpack": "2.4.0"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "bin": {[m
+[32m+[m[32m        "next": "dist/bin/next"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=16.14.0"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "optionalDependencies": {[m
+[32m+[m[32m        "@next/swc-darwin-arm64": "13.5.4",[m
+[32m+[m[32m        "@next/swc-darwin-x64": "13.5.4",[m
+[32m+[m[32m        "@next/swc-linux-arm64-gnu": "13.5.4",[m
+[32m+[m[32m        "@next/swc-linux-arm64-musl": "13.5.4",[m
+[32m+[m[32m        "@next/swc-linux-x64-gnu": "13.5.4",[m
+[32m+[m[32m        "@next/swc-linux-x64-musl": "13.5.4",[m
+[32m+[m[32m        "@next/swc-win32-arm64-msvc": "13.5.4",[m
+[32m+[m[32m        "@next/swc-win32-ia32-msvc": "13.5.4",[m
+[32m+[m[32m        "@next/swc-win32-x64-msvc": "13.5.4"[m
+[32m+[m[32m   
