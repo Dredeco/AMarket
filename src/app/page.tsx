@@ -2,19 +2,20 @@
 import { BestSellers } from '@/components/BestSellers'
 import { Header } from '@/components/Header'
 import { ProductForm } from '@/components/ProductForm'
-import { AppContextProvider } from '@/context/Context'
+import { ProductsList } from '@/components/ProductsList'
 import { useFilter } from '@/hooks/useFilter'
-import Image from 'next/image'
 import { useState } from 'react'
 import styled from 'styled-components'
 
 const MainContainer = styled.main`
   display: flex;
+  flex-wrap: wrap;
   max-width: 1280px;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   min-height: 100vh;
   margin: 0 auto;
+  margin-top: 8rem;
   padding: 0 5rem;
 `
 
@@ -32,6 +33,7 @@ export default function Home() {
       <Header handleModal={handleModal} />
       <MainContainer>
         <BestSellers />
+        <ProductsList />
       </MainContainer>
     </>
   )

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const BestSellersMain = styled.section`
-    width: 42.8rem;
+    width: 100%;
+    max-width: 42.8rem;
     display: flex;
-    margin-top: 8rem;
     align-self: flex-start;
     flex-direction: column;
 
@@ -32,7 +32,6 @@ export const BestSellersContainer = styled.div`
     flex-wrap: wrap;
     row-gap: 1rem;
     column-gap: 3rem;
-    background-color: #F3F5F9;
     justify-content: center;
 `
 
@@ -45,10 +44,14 @@ export const BestSellersList = styled.ul`
     li{
         list-style: none;
         width: 16rem;
+        background-color: #0000002b;
+        padding: 1rem;
+        border-radius: 10px;
         .productImage{
             width: 100%;
             height: 14rem;
-            background-color: #ccc;
+            background-color: #ffffff;
+            margin-bottom: .5rem;
         }
         .priceAndSales{
             display: flex;

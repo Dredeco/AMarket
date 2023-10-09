@@ -37,16 +37,16 @@ export const Header = ({handleModal}: any) => {
                 <h1>Products</h1>
                 <div className="inputWrapper">
                     <Search />
-                    <input type='text' placeholder='Buscar por produtos' onChange={(e) => handleSearch(e.target.value)}/>
+                    <input type='text' placeholder='Search products' onChange={(e) => handleSearch(e.target.value)}/>
                 </div>
             </SearchSection>
 
             <FilterSection>
                 <div className="filterButtons">
-                    <FilterButton selected={type === "ALL"} onClick={() => handleType('ALL')}>Todos</FilterButton>
-                    <FilterButton selected={type === "FAVORITES"} onClick={() => handleType('FAVORITES')}>Favoritos</FilterButton>
+                    <FilterButton selected={type === "ALL"} onClick={() => handleType('ALL')}>All Products</FilterButton>
+                    <FilterButton selected={type === "FAVORITES"} onClick={() => handleType('FAVORITES')}>Favorites</FilterButton>
                 </div>
-                <button className='createButton' onClick={() => handleModal()}>Criar novo</button>
+                <button className='createButton' onClick={() => handleModal()}>New Product</button>
             </FilterSection>
         </HeaderContainer>
     </MainHeader>

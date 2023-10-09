@@ -43,6 +43,7 @@ export const LogoSection = styled.div`
 
 export const SearchSection = styled.div`
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     height: 17rem;
     justify-content: space-between;
@@ -68,6 +69,10 @@ export const SearchSection = styled.div`
             border-radius: 10px;
             padding-left: 6rem;
         }
+    }
+
+    @media screen and (min-width: 676px) {
+        text-align: center;
     }
 
 `

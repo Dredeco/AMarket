@@ -18,9 +18,9 @@ export const ProductForm = ({handleModal, createModal}: any) => {
   return (
     <ProductFormMain>
         <ProductFormContainer>
-            <h1>Novo Produto</h1>
+            <h1>New Product</h1>
             <form>
-                <label>Nome:</label>
+                <label>Name:</label>
                 <input type='text' name='name' />
                 <label>Code:</label>
                 <input type='text' name='code'/>
@@ -31,8 +31,8 @@ export const ProductForm = ({handleModal, createModal}: any) => {
                 <label>Stock:</label>
                 <input type='text' name='stock'/>
                 <div className='formButtons'>
-                    <button className='create'>Create</button>
                     <button className='cancel' onClick={(e) => handleCancel(e)}>Cancel</button>
+                    <button className='create'>Confirm</button>
                 </div>
             </form>
         </ProductFormContainer>

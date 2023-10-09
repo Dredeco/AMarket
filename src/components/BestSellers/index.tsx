@@ -46,7 +46,7 @@ export const BestSellers = () => {
   return (
     <BestSellersMain>
         <div className="headerWithNavigation">
-            <h1>Mais vendidos</h1>
+            <h1>Best Sellers</h1>
             <div className='navigationArrows'>
                 <ArrowLeft />
                 <ArrowRight />
@@ -60,7 +60,7 @@ export const BestSellers = () => {
                     <div className="productInformation">
                         <div className='priceAndSales'>
                             <span>R$ <strong>{product.price.toFixed(2)}</strong></span>
-                            <span>{product.sales} vendas</span>
+                            <span>{product.sales} sells</span>
                         </div>
                         <strong>{product.name}</strong>
                     </div>
