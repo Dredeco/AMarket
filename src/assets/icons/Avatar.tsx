@@ -3,7 +3,7 @@ import React from 'react'
 export const Avatar = () => {
   return (
     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-    <g clip-path="url(#clip0_1_4265)">
+    <g clipPath="url(#clip0_1_4265)">
     <rect width="40" height="40" rx="20" fill="black"/>
     <rect x="-5" y="-5" width="47" height="59" fill="url(#pattern0)"/>
     </g>

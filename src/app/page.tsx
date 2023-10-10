@@ -1,10 +1,11 @@
 'use client'
+import { getProducts } from '@/api/services'
 import { BestSellers } from '@/components/BestSellers'
 import { Header } from '@/components/Header'
 import { ProductForm } from '@/components/ProductForm'
 import { ProductsList } from '@/components/ProductsList'
 import { useFilter } from '@/hooks/useFilter'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 const MainContainer = styled.main`
@@ -20,8 +21,18 @@ const MainContainer = styled.main`
 `
 
 export default function Home() {
- const {search} = useFilter()
- const [createModal, setCreateModal] = useState(false)
+  const [products, setProducts] = useState('')
+  const {search} = useFilter()
+  const [createModal, setCreateModal] = useState(false)
+
+ useEffect(() => {
+  const getData = async () => {
+    const data = await getProducts()
+    setProducts(data)
+  }
+
+  getData()
+ }, [])
 
  const handleModal = (value: boolean) => {
   setCreateModal(!value)
@@ -33,7 +44,7 @@ export default function Home() {
       <Header handleModal={handleModal} />
       <MainContainer>
         <BestSellers />
-        <ProductsList />
+        <ProductsList products={products? products : ""} />
       </MainContainer>
     </>
   )

@@ -1,9 +1,15 @@
 import React, { FormEvent, useEffect, useState } from 'react'
 import { ProductFormContainer, ProductFormMain } from './styles'
+import { createProduct } from '@/api/services'
 
 
 export const ProductForm = ({handleModal, createModal}: any) => {
     const [isVisible, setIsVisible] = useState(createModal)
+    const [name, setName] = useState('')
+    const [code, setCode] = useState('')
+    const [price, setPrice] = useState(Number)
+    const [sales, setSales] = useState(Number)
+    const [stock, setStock] = useState(Number)
 
     useEffect(() => {
         console.log(createModal)
@@ -15,24 +21,43 @@ export const ProductForm = ({handleModal, createModal}: any) => {
         e.preventDefault()
     }
 
+    const handleSubmit = async(e: FormEvent) => {
+        e.preventDefault()
+
+        if(!name || !code || !price || !sales || !stock) {
+            alert("Todos os campos são obrigatórios")
+        }
+
+        const product: IProduct = {
+            name: name,
+            code: code,
+            price: price,
+            sales: sales,
+            stock: stock
+        }
+
+        await createProduct(product)
+        handleModal(isVisible)
+    }
+
   return (
     <ProductFormMain>
         <ProductFormContainer>
             <h1>New Product</h1>
             <form>
                 <label>Name:</label>
-                <input type='text' name='name' />
+                <input type='text' name='name' onChange={(e) => setName(e.target.value)}/>
                 <label>Code:</label>
-                <input type='text' name='code'/>
-                <label>Sales:</label>
-                <input type='text'name='sales' />
+                <input type='text' name='code' onChange={(e) => setCode(e.target.value)}/>
                 <label>Price:</label>
-                <input type='text' name='price'/>
+                <input type='number' name='price' onChange={(e) => setPrice(e.target.valueAsNumber)}/>
+                <label>Sales:</label>
+                <input type='number'name='sales' onChange={(e) => setSales(e.target.valueAsNumber)}/>
                 <label>Stock:</label>
-                <input type='text' name='stock'/>
+                <input type='number' name='stock' onChange={(e) => setStock(e.target.valueAsNumber)}/>
                 <div className='formButtons'>
                     <button className='cancel' onClick={(e) => handleCancel(e)}>Cancel</button>
-                    <button className='create'>Confirm</button>
+                    <button className='create' onClick={(e) => handleSubmit(e)}>Confirm</button>
                 </div>
             </form>
         </ProductFormContainer>

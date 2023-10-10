@@ -5,46 +5,8 @@ import { ArrowRight } from '@/assets/icons/ArrowRight'
 import { FullHeart } from '@/assets/icons/FullHeart'
 import { Heart } from '@/assets/icons/Heart'
 
-const products = [
-    {
-        id: 1,
-        name: "Maça",
-        code: "MLB00001",
-        sales: 30,
-        price: 2,
-        stock: 3,
-        favorite: true
-    },
-    {
-        id: 2,
-        name: "Pera",
-        code: "MLB00002",
-        sales: 30,
-        price: 2,
-        stock: 3,
-        favorite: false
-    },
-    {
-        id: 3,
-        name: "Uva",
-        code: "MLB00003",
-        sales: 30,
-        price: 2,
-        stock: 3,
-        favorite: false
-    },
-    {
-        id: 4,
-        name: "Banana",
-        code: "MLB00004",
-        sales: 30,
-        price: 2,
-        stock: 3,
-        favorite: false
-    },
-]
 
-export const ProductsList = () => {
+export const ProductsList = ({products}: any[]) => {
   return (
     <ProductsListMain>
         <div className="headerWithNavigation">
@@ -64,7 +26,7 @@ export const ProductsList = () => {
             </ProductsListTableHeader>
             <ProductsListTable>
                 {products.map((product) => (
-                    <li key={product.id}>
+                    <li key={product.name}>
                         <div className="identification">
                             <div className="productImage" />
                             <div className='nameAndCodeWrapper'>
