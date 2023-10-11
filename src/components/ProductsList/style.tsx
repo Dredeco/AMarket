@@ -5,6 +5,7 @@ export const ProductsListMain = styled.section`
     display: flex;
     align-self: flex-start;
     flex-direction: column;
+    flex: 1;
 
     .headerWithNavigation{
         width: 100%;
@@ -55,10 +56,13 @@ export const ProductsListTable = styled.ul`
     display: flex;
     flex-direction: column;
     color: #222;
+    grid-row-gap: 1rem;
 
     li{
         display: flex;
         align-items: center;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
 
         .identification{
             display: flex;
@@ -68,9 +72,16 @@ export const ProductsListTable = styled.ul`
             .productImage{
                 max-width: 9rem;
                 height: 8.5rem;
-                background-color: green;
-                margin-bottom: .5rem;
+                background-color: #ddd;
             }
+
+            .nameAndCodeWrapper {
+                strong {
+                    color: #235EE7;
+                    cursor: pointer;
+                }
+            }
+
         }
     }
 `

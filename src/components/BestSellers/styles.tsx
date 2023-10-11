@@ -4,8 +4,8 @@ export const BestSellersMain = styled.section`
     width: 100%;
     max-width: 42.8rem;
     display: flex;
-    align-self: flex-start;
     flex-direction: column;
+    flex: 1;
 
     .headerWithNavigation{
         width: 100%;
@@ -18,7 +18,7 @@ export const BestSellersMain = styled.section`
             gap: 1rem;
         }
 
-        svg{
+        div{
             cursor: pointer;
         }
     }
@@ -44,7 +44,7 @@ export const BestSellersList = styled.ul`
     li{
         list-style: none;
         width: 16rem;
-        background-color: #0000002b;
+        background-color: #eee;
         padding: 1rem;
         border-radius: 10px;
         .productImage{

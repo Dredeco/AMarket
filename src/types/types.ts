@@ -6,3 +6,10 @@ interface IProduct {
     stock: number,
     favorite?: boolean
 }
+
+interface IPaginate {
+    products: IProduct[],
+    page: number,
+    pageSize: number,
+    onPageChange?: (value: number) => {} | void
+}

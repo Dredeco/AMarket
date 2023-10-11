@@ -3,7 +3,7 @@ import { ReactNode, createContext, useState } from "react";
 
 export const AppContext = createContext({
     search: '',
-    page: 0,
+    page: 1,
     type: "ALL" || "FAVORITES",
     setSearch: (value: string) => {},
     setPage: (value: number) => {},
@@ -16,7 +16,7 @@ interface ProviderProps {
 
 export const AppContextProvider = ({ children }: ProviderProps) => {
     const [search, setSearch] = useState('')
-    const [page, setPage] = useState(0)
+    const [page, setPage] = useState(1)
     const [type, setType] = useState('ALL')
     
     return (
