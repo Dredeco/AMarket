@@ -22,6 +22,15 @@ export const BestSellersMain = styled.section`
             cursor: pointer;
         }
     }
+
+    .pagination{
+        align-self: flex-end;
+        font-size: 1.2rem;
+    }
+
+    @media screen and (max-width: 1200px){
+        display: none;
+    }
 `
 
 export const BestSellersContainer = styled.div`

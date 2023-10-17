@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { MouseEventHandler, useEffect, useState } from 'react'
 import { ProductsListContainer, ProductsListTable, ProductsListMain, ProductsListTableHeader } from './style'
 import { ArrowLeft } from '@/assets/icons/ArrowLeft'
 import { ArrowRight } from '@/assets/icons/ArrowRight'
@@ -7,9 +7,11 @@ import { Heart } from '@/assets/icons/Heart'
 import { getProducts } from '@/api/services'
 import { useFilter } from '@/hooks/useFilter'
 import { Paginate } from '@/hooks/usePaginate'
+import { Loading } from '../Loading'
 
 export const ProductsList = () => {
     const [products, setProducts] = useState(Array<IProduct>)
+    const [favorite, setFavorite] = useState()
     const [page, setPage] = useState(1)
     const [pageCount, setPageCount] = useState(1)
     const {search} = useFilter()
@@ -41,6 +43,11 @@ export const ProductsList = () => {
         }
     }
 
+    const handleFavorite = (value: any) => {
+        setFavorite(value)
+
+    }
+
   return (
     <ProductsListMain>
         <div className="headerWithNavigation">
@@ -63,7 +70,7 @@ export const ProductsList = () => {
                 <li></li>
             </ProductsListTableHeader>
             <ProductsListTable>
-                { products ?
+                { products.length ?
                     products.map((product: IProduct) => (
                         <li key={product.name}>
                             <div className="identification">
@@ -75,29 +82,32 @@ export const ProductsList = () => {
                             </div>
     
                             <div className="price">
-                                <p>R$ {product.price.toFixed(2)}</p>
+                                <p>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(product.price)}</p>
                             </div>
     
                             <div className="sales">
                                 <p>{product.sales} sales</p>
                                 <p>-</p>
-                                <strong>Total of <br />R${product.sales * product.price}</strong>
+                                <strong>Total of <br />{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(product.sales * product.price)}</strong>
                             </div>
     
                             <div className="stock">
                                 {product.stock} unit
                             </div>
     
-                            <div className='favorite'>
+                            <div className='favorite' onClick={() => handleFavorite(product.code)}>
                                 {product.favorite ? <FullHeart /> : <Heart />}
                             </div>
                         </li>
                     )) : 
                     
-                    <div>Loading</div>
+                    <Loading />
                 }
             </ProductsListTable>
         </ProductsListContainer>
+        <div className='pagination'>
+             <p>Página {page} de {pageCount}</p>
+        </div>
     </ProductsListMain>
   )
 }

@@ -22,6 +22,12 @@ export const ProductsListMain = styled.section`
             cursor: pointer;
         }
     }
+
+    .pagination{
+        margin-top: 3rem;
+        align-self: flex-end;
+        font-size: 1.2rem;
+    }
 `
 
 export const ProductsListContainer = styled.div`
@@ -29,7 +35,7 @@ export const ProductsListContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0 3rem;
+    padding:0 3rem;
 
     ul{
         font-size: 1.4rem;
@@ -81,7 +87,13 @@ export const ProductsListTable = styled.ul`
                     cursor: pointer;
                 }
             }
+        }
 
+        .favorite{
+            display: flex;
+            svg{
+                cursor: pointer;
+            }
         }
     }
 `

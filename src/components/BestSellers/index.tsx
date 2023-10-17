@@ -3,8 +3,8 @@ import { BestSellersContainer, BestSellersList, BestSellersMain } from './styles
 import { ArrowLeft } from '@/assets/icons/ArrowLeft'
 import { ArrowRight } from '@/assets/icons/ArrowRight'
 import { getProducts } from '@/api/services'
-import { useFilter } from '@/hooks/useFilter'
 import { Paginate } from '@/hooks/usePaginate'
+import { Loading } from '../Loading'
 
 export const BestSellers = () => {
     const [products, setProducts] = useState(Array<IProduct>)
@@ -53,22 +53,24 @@ export const BestSellers = () => {
             </div>
         </div>
         <BestSellersContainer>
-            {products.map((product: IProduct) => (
+            {products.length ?
+            products.map((product: IProduct) => (
             <BestSellersList>
                 <li key={product.name}>
                     <div className="productImage" />
                     <div className="productInformation">
                         <div className='priceAndSales'>
-                            <span>R$ <strong>{product.price.toFixed(2)}</strong></span>
+                            <span><strong>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(product.price)}</strong></span>
                             <span>{product.sales} sales</span>
                         </div>
                         <strong>{product.name}</strong>
                     </div>
                 </li>
             </BestSellersList>
-            ))}
+            )) :  <Loading />}
+
         </BestSellersContainer>
-        <div>
+        <div className='pagination'>
              <p>Página {page} de {pageCount}</p>
         </div>
     </BestSellersMain>

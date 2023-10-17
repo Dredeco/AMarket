@@ -1,5 +1,6 @@
 'use client'
 import { BestSellers } from '@/components/BestSellers'
+import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { ProductForm } from '@/components/ProductForm'
 import { ProductsList } from '@/components/ProductsList'
@@ -14,10 +15,8 @@ const MainContainer = styled.main`
   flex-direction: row;
   gap: 3rem;
   justify-content: center;
-  align-items: center;
   padding: 0 5rem;
-  margin: 0 auto;
-  margin-top: 8rem;
+  margin: 8rem auto;
 
   @media screen and (max-width: 1200px) {
       flex-direction: column;
@@ -39,6 +38,7 @@ export default function Home() {
         <BestSellers />
         <ProductsList />
       </MainContainer>
+      <Footer />
     </>
   )
 }
