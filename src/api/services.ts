@@ -19,7 +19,14 @@ export const createProduct = async(product: IProduct) => {
     return alert("New Product Created: " + product.name)
 }
 
-export const updateFavorite =async ({code}: IProduct) => {
-    const response = await fetch(`https://amarketapi.onrender.com/api/products/${code}`)
+export const updateFavorite =async (id: string, favorite: boolean) => {
+    const response = await fetch(`http://localhost:5000/api/products/${id}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+    })
     .then(res => res.json())
+
+    console.log(response)
 }

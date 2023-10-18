@@ -1,10 +1,11 @@
 interface IProduct {
+    _id: string,
     name: string,
     code: string,
     price: number,
     sales: number,
     stock: number,
-    favorite?: boolean
+    favorite: boolean
 }
 
 interface IPaginate {

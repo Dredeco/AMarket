@@ -4,14 +4,14 @@ import { ArrowLeft } from '@/assets/icons/ArrowLeft'
 import { ArrowRight } from '@/assets/icons/ArrowRight'
 import { FullHeart } from '@/assets/icons/FullHeart'
 import { Heart } from '@/assets/icons/Heart'
-import { getProducts } from '@/api/services'
+import { getProducts, updateFavorite } from '@/api/services'
 import { useFilter } from '@/hooks/useFilter'
 import { Paginate } from '@/hooks/usePaginate'
 import { Loading } from '../Loading'
 
 export const ProductsList = () => {
     const [products, setProducts] = useState(Array<IProduct>)
-    const [favorite, setFavorite] = useState()
+    const [favorite, setFavorite] = useState(Boolean)
     const [page, setPage] = useState(1)
     const [pageCount, setPageCount] = useState(1)
     const {search} = useFilter()
@@ -25,7 +25,7 @@ export const ProductsList = () => {
         setPageCount(Math.ceil(data.length / pageSize))
     }
     getData()
-}, [page])
+}, [page, favorite])
 
     const onClickNext = () => {
         if (page >= pageCount ) {
@@ -43,9 +43,12 @@ export const ProductsList = () => {
         }
     }
 
-    const handleFavorite = (value: any) => {
-        setFavorite(value)
-
+    const handleFavorite = async(id: string, favoriteValue: boolean) => {
+        if(id == undefined || favorite == undefined) {
+            alert('Product not found.')
+        }
+        setFavorite(!favoriteValue)
+        updateFavorite(id, !favoriteValue)
     }
 
   return (
@@ -95,8 +98,8 @@ export const ProductsList = () => {
                                 {product.stock} unit
                             </div>
     
-                            <div className='favorite' onClick={() => handleFavorite(product.code)}>
-                                {product.favorite ? <FullHeart /> : <Heart />}
+                            <div className='favorite' onClick={() => handleFavorite(product._id, product.favorite)}>
+                                {product.favorite == true ? <FullHeart /> : <Heart />}
                             </div>
                         </li>
                     )) : 

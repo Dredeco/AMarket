@@ -49,6 +49,9 @@ export const BestSellersList = styled.ul`
     color: #6B7183;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+
 
     li{
         list-style: none;

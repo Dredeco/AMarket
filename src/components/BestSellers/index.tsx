@@ -53,10 +53,10 @@ export const BestSellers = () => {
             </div>
         </div>
         <BestSellersContainer>
+            <BestSellersList>
             {products.length ?
             products.map((product: IProduct) => (
-            <BestSellersList>
-                <li key={product.name}>
+                <li key={product._id}>
                     <div className="productImage" />
                     <div className="productInformation">
                         <div className='priceAndSales'>
@@ -66,9 +66,9 @@ export const BestSellers = () => {
                         <strong>{product.name}</strong>
                     </div>
                 </li>
+            )) :
+            <Loading key='Loading' />}
             </BestSellersList>
-            )) :  <Loading />}
-
         </BestSellersContainer>
         <div className='pagination'>
              <p>Página {page} de {pageCount}</p>
