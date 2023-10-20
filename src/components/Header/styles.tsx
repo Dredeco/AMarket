@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MainHeader = styled.header`
-    background-color: #17223E;
+    background-color: #155f47;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -29,11 +29,13 @@ export const LogoSection = styled.div`
         font-size: 2.5rem;
         font-weight: bold;
         span{
-            color: #b54dfa;
+            color: #d35dcd;
         }
     }
 
     .userSection{
+        width: fit-content;
+        height: fit-content;
         display: flex;
         align-items: center;
         gap: 1.6rem;
@@ -92,7 +94,7 @@ export const FilterSection = styled.div`
     .createButton{
         color: #fff;
         padding: .8rem .9rem;
-        background-color: #D32811;
+        background-color: #9e3d99;
         border-radius: 10px;
         cursor: pointer;
     }
@@ -100,7 +102,7 @@ export const FilterSection = styled.div`
 export const FilterButton = styled.button<FilterButtonProps>`
     color: #fff;
     padding: .8rem .9rem;
-    background-color: ${props => props.selected ? '#D32811' : '#d3281175'};
+    background-color: ${props => props.selected ? '#9e3d99' : '#9e3d9975'};
     border-radius: 10px;
     cursor: pointer;
 `

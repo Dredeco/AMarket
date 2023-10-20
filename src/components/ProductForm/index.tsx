@@ -10,6 +10,7 @@ export const ProductForm = ({handleModal, createModal}: any) => {
     const [price, setPrice] = useState(Number)
     const [sales, setSales] = useState(Number)
     const [stock, setStock] = useState(Number)
+    const [favorite, setFavorite] = useState(false)
 
     useEffect(() => {
         console.log(createModal)
@@ -28,12 +29,13 @@ export const ProductForm = ({handleModal, createModal}: any) => {
             alert("Todos os campos são obrigatórios")
         }
 
-        const product: IProduct = {
+        const product: Partial<IProduct> = {
             name: name,
             code: code,
             price: price,
             sales: sales,
-            stock: stock
+            stock: stock,
+            favorite: favorite
         }
 
         await createProduct(product)
@@ -57,7 +59,7 @@ export const ProductForm = ({handleModal, createModal}: any) => {
                 <input type='number' name='stock' onChange={(e) => setStock(e.target.valueAsNumber)}/>
                 <div className='formButtons'>
                     <button className='cancel' onClick={(e) => handleCancel(e)}>Cancel</button>
-                    <button className='create' onClick={(e) => handleSubmit(e)}>Confirm</button>
+                    <button className='create' onClick={(e) => handleSubmit(e)}>Create new</button>
                 </div>
             </form>
         </ProductFormContainer>

@@ -14,7 +14,7 @@ export const ProductFormMain = styled.section`
 export const ProductFormContainer = styled.div`
     width: 90vw;
     height: 100%;
-    max-width: 600px;
+    max-width: 500px;
     max-height: 500px;
     background-color: #fff;
     border-radius: 20px;
@@ -30,7 +30,7 @@ export const ProductFormContainer = styled.div`
         width: 100%;
         display: flex;
         align-items: center;
-        padding: 0 2rem;
+        padding: 0 5rem;
 
         label{
             align-self: flex-start;
@@ -47,19 +47,16 @@ export const ProductFormContainer = styled.div`
 
         .formButtons{
             display: flex;
-            gap: 3rem;
+            gap: 2rem;
             margin-top: 2rem;
             button{
                 color: #fff;
                 padding: .8rem .9rem;
                 border-radius: 10px;
                 cursor: pointer;
-                font-size: 1.6rem;
             }
             .create{
                 background-color: #D32811;
-                font-size: 2rem;
-                width: 15rem;
             }
             .cancel{
                 background-color: #000;

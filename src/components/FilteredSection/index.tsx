@@ -1,5 +1,5 @@
 import React, { MouseEventHandler, useEffect, useState } from 'react'
-import { ProductsListContainer, ProductsListTable, ProductsListMain, ProductsListTableHeader } from './style'
+import { ProductsListContainer, ProductsListTable, ProductsListMain, ProductsListTableHeader } from './styles'
 import { ArrowLeft } from '@/assets/icons/ArrowLeft'
 import { ArrowRight } from '@/assets/icons/ArrowRight'
 import { FullHeart } from '@/assets/icons/FullHeart'
@@ -9,23 +9,28 @@ import { useFilter } from '@/hooks/useFilter'
 import { Paginate } from '@/hooks/usePaginate'
 import { Loading } from '../Loading'
 
-export const ProductsList = () => {
+export const FilteredSection = () => {
     const [products, setProducts] = useState(Array<IProduct>)
     const [favorite, setFavorite] = useState(Boolean)
     const [page, setPage] = useState(1)
     const [pageCount, setPageCount] = useState(1)
-    const {search} = useFilter()
+    const {search, type, setType} = useFilter()
     const pageSize = 6;
   
     useEffect(() => {
         const getData = async () => {
         const data = await getProducts()
         const paginatedProducts = await Paginate(data, page, pageSize);
-        setProducts(paginatedProducts)
-        setPageCount(Math.ceil(data.length / pageSize))
+        if(search) {
+            setType('ALL')
+            setProducts(await paginatedProducts.filter((prod) => prod.name.toLowerCase().includes(search.toLowerCase())))
+        } else if (type != "ALL") {
+            setProducts(await paginatedProducts.filter((prod) => prod.favorite == true))
+        }
+        setPageCount(Math.ceil(paginatedProducts.length / pageSize))
     }
     getData()
-}, [page, favorite])
+}, [page, favorite, search])
 
     const onClickNext = () => {
         if (page >= pageCount ) {

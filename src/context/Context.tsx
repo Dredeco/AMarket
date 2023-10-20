@@ -4,7 +4,7 @@ import { ReactNode, createContext, useState } from "react";
 export const AppContext = createContext({
     search: '',
     page: 1,
-    type: "ALL" || "FAVORITES",
+    type: "ALL",
     setSearch: (value: string) => {},
     setPage: (value: number) => {},
     setType: (value: string) => {},

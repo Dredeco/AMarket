@@ -7,7 +7,7 @@ export const getProducts = async() => {
     return products
 }
 
-export const createProduct = async(product: IProduct) => {
+export const createProduct = async(product: Partial<IProduct>) => {
     const response = await fetch("https://amarketapi.onrender.com/api/products", {
         method: "POST",
         headers: {
@@ -20,7 +20,7 @@ export const createProduct = async(product: IProduct) => {
 }
 
 export const updateFavorite =async (id: string, favorite: boolean) => {
-    const response = await fetch(`http://localhost:5000/api/products/${id}`, {
+    const response = await fetch(`https://amarketapi.onrender.com/api/products/${id}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -29,4 +29,5 @@ export const updateFavorite =async (id: string, favorite: boolean) => {
     .then(res => res.json())
 
     console.log(response)
+    return response
 }

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { MainHeader, HeaderContainer, LogoSection, SearchSection, FilterSection, FilterButton } from './styles'
 import Link from 'next/link'
-import { Avatar } from '@/assets/icons/Avatar'
+import Avatar2 from '@/assets/icons/Avatar2'
 import { ChevronDonw } from '@/assets/icons/ChevronDonw'
 import { Search } from '@/assets/icons/search'
 import { AppContext } from '@/context/Context'
@@ -9,10 +9,6 @@ import { useFilter } from '@/hooks/useFilter'
 
 export const Header = ({handleModal}: any) => {
     const {search, setSearch, type, setType} = useFilter();
-
-    useEffect(() => {
-        console.log(search)
-    }, [search])
 
     const handleSearch = (value: string) => {
         setSearch(value)
@@ -26,9 +22,9 @@ export const Header = ({handleModal}: any) => {
     <MainHeader>
         <HeaderContainer>
             <LogoSection>
-                <Link href='/'><span>A+</span>Market</Link>
+                <Link href='/'><span>A</span>Market</Link>
                 <div className="userSection">
-                    <Avatar />
+                    <Avatar2 />
                     <ChevronDonw />
                 </div>
             </LogoSection>
