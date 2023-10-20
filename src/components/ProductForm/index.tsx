@@ -47,16 +47,28 @@ export const ProductForm = ({handleModal, createModal}: any) => {
         <ProductFormContainer>
             <h1>New Product</h1>
             <form>
-                <label>Name:</label>
-                <input type='text' name='name' onChange={(e) => setName(e.target.value)}/>
-                <label>Code:</label>
-                <input type='text' name='code' onChange={(e) => setCode(e.target.value)}/>
-                <label>Price:</label>
-                <input type='number' name='price' onChange={(e) => setPrice(e.target.valueAsNumber)}/>
-                <label>Sales:</label>
-                <input type='number'name='sales' onChange={(e) => setSales(e.target.valueAsNumber)}/>
-                <label>Stock:</label>
-                <input type='number' name='stock' onChange={(e) => setStock(e.target.valueAsNumber)}/>
+                <ul>
+                <li>
+                    <label>Name:</label>
+                    <input type='text' name='name' onChange={(e) => setName(e.target.value)}/>
+                </li>
+                <li>
+                    <label>Code:</label>
+                    <input type='text' name='code' onChange={(e) => setCode(e.target.value)}/>
+                </li>
+                <li>
+                    <label>Price:</label>
+                    <input type='number' name='price' onChange={(e) => setPrice(e.target.valueAsNumber)}/>
+                </li>
+                <li>
+                    <label>Sales:</label>
+                    <input type='number'name='sales' onChange={(e) => setSales(e.target.valueAsNumber)}/>
+                </li>
+                <li>
+                    <label>Stock:</label>
+                    <input type='number' name='stock' onChange={(e) => setStock(e.target.valueAsNumber)}/>
+                </li>
+                </ul>
                 <div className='formButtons'>
                     <button className='cancel' onClick={(e) => handleCancel(e)}>Cancel</button>
                     <button className='create' onClick={(e) => handleSubmit(e)}>Create new</button>
