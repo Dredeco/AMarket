@@ -16,7 +16,7 @@ export const BestSellers = () => {
         const getData = async () => {
         const data = await getProducts()
         const paginatedProducts = await Paginate(data, page, pageSize);
-        setProducts(paginatedProducts)
+        setProducts(paginatedProducts.sort((a: any, b: any) => b.sales - a.sales))
         setPageCount(Math.ceil(data.length / pageSize))
     }
     getData()
